@@ -10,7 +10,7 @@ import {
 
 const chromedriver = require("chromedriver");
 
-const driver: WebDriver = new Builder()
+const driver:  WebDriver = new Builder()
     .withCapabilities(Capabilities.chrome())
     .build();
 const bernice: By = By.name("employee1");
@@ -44,13 +44,13 @@ describe("Employee Manager 1.2", () => {
         4. Open Bernice Ortiz
         5. Verify the name field is the original name
         */
-        await driver.findElement(By.name('Bernice')).click();
+        await driver.findElement().click();
         await driver.wait(
             until.elementIsVisible(await driver.findElement())
         );
-        await driver.findElement('Bernice').clear();
+        await driver.findElement().clear();
         await driver.findElement().sendKeys("Test Name");
-        await driver.findElement('Phillip').click();
+        await driver.findElement().click();
         await driver.wait(
             until.elementTextContains(
             await driver.findElement(),
@@ -81,9 +81,9 @@ describe("Employee Manager 1.2", () => {
             await driver.wait(
                 until.elementIsVisible(await driver.findElement())
             );
-            await driver.findElement('Phillip').clear();
+            await driver.findElement().clear();
             await driver.findElement().sendKeys("Test Name");
-            await driver.findElement('Phillip').click();
+            await driver.findElement().click();
             expect(
                 await (await driver.findElement()).getAttribute("")
             ).toBe("");
